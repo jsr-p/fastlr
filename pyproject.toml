@@ -1,6 +1,6 @@
 [project]
 name = "fastlr"
-version = "0.1.0"
+version = "0.1.0.dev0"
 description = "Fast logistic regression"
 readme = "README.md"
 authors = [

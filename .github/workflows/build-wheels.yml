@@ -182,9 +182,11 @@ jobs:
     name: Upload all wheels to release
     runs-on: ubuntu-22.04
     needs: [build-linux, build-macos, build-windows, build-sdist-linux]
-    environment:
-      name: testpypi
-      url: https://testpypi.org/p/fastlr
+
+    environment: pypi
+    permissions:
+      id-token: write
+
     steps:
       - name: Download Linux wheels
         uses: actions/download-artifact@v4
@@ -221,6 +223,3 @@ jobs:
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          repository-url: https://test.pypi.org/legacy/
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
