@@ -1,0 +1,41 @@
+Session info:
+R version 4.4.3 (2025-02-28)
+Platform: x86_64-pc-linux-gnu
+Running under: Arch Linux
+
+Matrix products: default
+BLAS/LAPACK: /usr/lib/libopenblas.so.0.3;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_DK.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Europe/Copenhagen
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] fastlr_0.1.0         fastglm_0.0.3        bigmemory_4.6.4     
+[4] ggplot2_3.5.1        microbenchmark_1.5.0
+
+loaded via a namespace (and not attached):
+ [1] Matrix_1.7-2        gtable_0.3.5        dplyr_1.1.4        
+ [4] compiler_4.4.3      tidyselect_1.2.1    Rcpp_1.0.13        
+ [7] textshaping_0.3.7   systemfonts_1.0.6   splines_4.4.3      
+[10] scales_1.3.0        uuid_1.2-1          lattice_0.22-6     
+[13] TH.data_1.1-3       R6_2.6.1            labeling_0.4.3     
+[16] generics_0.1.3      MASS_7.3-64         tibble_3.2.1       
+[19] munsell_0.5.1       pillar_1.9.0        rlang_1.1.6        
+[22] utf8_1.2.4          multcomp_1.4-28     cli_3.6.5          
+[25] withr_3.0.2         magrittr_2.0.3      grid_4.4.3         
+[28] mvtnorm_1.2-4       sandwich_3.1-0      bigmemory.sri_0.1.8
+[31] lifecycle_1.0.4     vctrs_0.6.5         glue_1.8.0         
+[34] farver_2.1.1        codetools_0.2-20    ragg_1.3.0         
+[37] zoo_1.8-12          survival_3.8-3      fansi_1.0.6        
+[40] colorspace_2.1-0    tools_4.4.3         pkgconfig_2.0.3    

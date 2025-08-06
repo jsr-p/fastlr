@@ -1,0 +1,10 @@
+CompileFlags:
+  Add: [
+    -I/home/jsr-p/.local/share/uv/python/cpython-3.12.7-linux-x86_64-gnu/include/python3.12,
+    -I/home/jsr-p/code/python/pybind11-test/.venv/lib/python3.12/site-packages/pybind11/include,
+    -I/home/jsr-p/projects/fastlogreg/src,
+    -I/home/jsr-p/projects/fastlogreg/src/core,
+    -I/home/jsr-p/R/x86_64-pc-linux-gnu-library/4.4/RcppArmadillo/include,
+    -I/home/jsr-p/R/x86_64-pc-linux-gnu-library/4.4/Rcpp/include,
+    -I/usr/include/R
+  ]

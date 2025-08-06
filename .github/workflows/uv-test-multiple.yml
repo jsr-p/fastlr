@@ -1,0 +1,57 @@
+name: Test build with uv
+
+on: [workflow_dispatch]
+
+jobs:
+  test-uv:
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            whl_url: https://github.com/jsr-p/fastlr/releases/download/v0.0.1/fastlr-0.1.0-cp312-cp312-macosx_14_0_arm64.whl
+          - os: windows-latest
+            whl_url: https://github.com/jsr-p/fastlr/releases/download/v0.0.1/fastlr-0.1.0-cp312-cp312-win_amd64.whl
+          - os: ubuntu-latest
+            whl_url: https://github.com/jsr-p/fastlr/releases/download/v0.0.1/fastlr-0.1.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v4
+
+      - name: Enable caching and define a custom cache key suffix
+        id: setup-uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Check Python version
+        shell: bash -l {0}
+        run: |
+          python --version
+          uv --version
+
+      - name: Download wheel
+        shell: bash -l {0}
+        run: curl -LO "${{ matrix.whl_url }}"
+
+      - name: Install wheel with uv
+        if: runner.os == 'macOS' || runner.os =='Linux'
+        run: |
+          uv venv
+          source .venv/bin/activate
+          uv pip install ./*.whl
+          python -c "from fastlr import _fastlr; _fastlr.check_arma()"
+
+      - name: Create venv and install wheel (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: |
+          uv venv
+          uv pip install fastlr-0.1.0-cp312-cp312-win_amd64.whl
+      - name: Activate env and try to install (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: |
+          .venv\Scripts\python -c "from fastlr import _fastlr; _fastlr.check_arma()"

@@ -1,0 +1,8 @@
+name: fastlr-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - pip:
+      - -r requirements.txt

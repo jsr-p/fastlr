@@ -1,0 +1,1 @@
+option('conda_prefix', type: 'string', value: '', description: 'Conda env path for Windows builds')

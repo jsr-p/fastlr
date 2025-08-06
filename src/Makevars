@@ -1,0 +1,8 @@
+# arma flag while devtools::check complained about `std::cerr`
+PKG_CPPFLAGS = -I$(srcdir)/core -DARMA_WARN_LEVEL=0
+CXX_STD = CXX17
+
+SOURCES = RcppExports.cpp fastlr_rcpp.cpp core/irls.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+
+PKG_LIBS = $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
