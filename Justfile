@@ -1,5 +1,8 @@
 all: install-R install-py py-stubs checks bench cpp-simple
 
+readme:
+    quarto render README.qmd
+
 install-R:
     rm -f src/*.o src/*.so src/RcppExports.* src/core/*.o
     Rscript -e 'Rcpp::compileAttributes()'

@@ -37,7 +37,7 @@ print(py_res := fastlr(X, y))
 ```
 
     IRLSResult(coefficients=array([-0.19547786,  0.26833757, -0.1303476 , -0.03979692, -0.15035753,
-           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.022075296)
+           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.045875088)
 
 ``` python
 # Alternatively, use the pure Python implementation
@@ -45,7 +45,7 @@ print(py_res_simple := fastlr(X, y, method="python"))
 ```
 
     IRLSResult(coefficients=array([-0.19547786,  0.26833757, -0.1303476 , -0.03979692, -0.15035753,
-           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.002509422993171029)
+           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.0025415679992875084)
 
 ``` python
 import numpy as np
@@ -72,7 +72,7 @@ print(m)
     [1] 4
 
     $time
-    [1] 0.001886126
+    [1] 0.002227843
 
     $converged
     [1] TRUE
@@ -109,6 +109,7 @@ all.equal(py_estimates, r_estimates, tolerance = 1e-6)
 ``` bash
 git clone https://github.com/jsr-p/fastlr
 cd fastlr
+uv sync
 pip install .
 ```
 
@@ -119,6 +120,12 @@ pip install fastlr
 ```
 
 ### R
+
+``` bash
+git clone https://github.com/jsr-p/fastlr
+cd fastlr
+Rscript -e 'devtools::install_local(".")'
+```
 
 ## Benchmarks
 

@@ -68,6 +68,7 @@ all.equal(py_estimates, r_estimates, tolerance = 1e-6)
 ```bash
 git clone https://github.com/jsr-p/fastlr
 cd fastlr
+uv sync
 pip install .
 ```
 
@@ -78,6 +79,12 @@ pip install fastlr
 ```
 
 ### R
+
+```bash
+git clone https://github.com/jsr-p/fastlr
+cd fastlr
+Rscript -e 'devtools::install_local(".")'
+```
 
 ## Benchmarks
 
