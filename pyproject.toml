@@ -32,3 +32,6 @@ dev = [
 docs = [
     "jupyter>=1.1.1",
 ]
+
+[tool.cibuildwheel.windows]
+repair-wheel-command = "bash scripts/repair_windows.sh {wheel} {dest_dir}"
