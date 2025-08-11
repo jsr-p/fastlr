@@ -5,6 +5,7 @@ on:
     tags: ["v*"]
 
 jobs:
+
   build-linux:
     name: Build on Linux
     runs-on: ubuntu-22.04

@@ -36,16 +36,16 @@ X, y = generate_data(N=10_000, k=10, seed=0)
 print(py_res := fastlr(X, y))
 ```
 
-    IRLSResult(coefficients=array([-0.19547786,  0.26833757, -0.1303476 , -0.03979692, -0.15035753,
-           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.045875088)
+    FastLrResult(coefficients=array([-0.19547786,  0.26833757, -0.1303476 , -0.03979692, -0.15035753,
+           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.051200235)
 
 ``` python
 # Alternatively, use the pure Python implementation
 print(py_res_simple := fastlr(X, y, method="python"))
 ```
 
-    IRLSResult(coefficients=array([-0.19547786,  0.26833757, -0.1303476 , -0.03979692, -0.15035753,
-           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.0025415679992875084)
+    FastLrResult(coefficients=array([-0.19547786,  0.26833757, -0.1303476 , -0.03979692, -0.15035753,
+           -0.26321948,  0.33105813, -0.19471808,  0.12025924,  0.11202108]), iterations=4, converged=True, time=0.002805208001518622)
 
 ``` python
 import numpy as np
@@ -72,7 +72,7 @@ print(m)
     [1] 4
 
     $time
-    [1] 0.002227843
+    [1] 0.00205007
 
     $converged
     [1] TRUE

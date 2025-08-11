@@ -1,10 +1,21 @@
+from dataclasses import dataclass, asdict
 from typing import Literal
 from numpy import float64, asfortranarray
 from numpy.typing import NDArray
 
 from ._fastlr import irls as irls_cpp
-from fastlr.logreg import irls as estimate_simple
-from fastlr.logreg import generate_data, IRLSResult
+from fastlr.logreg import irls
+from fastlr.logreg import generate_data
+
+
+@dataclass
+class FastLrResult:
+    """Dataclass to hold the result of logistic regression estimation."""
+
+    coefficients: NDArray[float64]
+    iterations: int
+    converged: bool
+    time: float
 
 
 def estimate_cpp(
@@ -19,7 +30,17 @@ def estimate_cpp(
         X = asfortranarray(X)
     if not y.flags["F_CONTIGUOUS"]:
         y = asfortranarray(y)
-    return IRLSResult(**irls_cpp(X, y, tol, max_iter))
+    return FastLrResult(**irls_cpp(X, y, tol, max_iter))
+
+
+def estimate_simple(
+    X: NDArray[float64],
+    y: NDArray[float64],
+    tol: float = 1e-8,
+    max_iter: int = 1000,
+) -> FastLrResult:
+    """Estimates logistic regression using pure Python IRLS implementation."""
+    return FastLrResult(**asdict(irls(X, y, tol=tol, max_iter=max_iter)))
 
 
 def fastlr(
@@ -28,7 +49,7 @@ def fastlr(
     tol: float = 1e-8,
     max_iter: int = 1000,
     method: Literal["cpp", "python"] = "cpp",
-) -> IRLSResult:
+) -> FastLrResult:
     """Estimate logistic regression"""
     match method:
         case "cpp":
